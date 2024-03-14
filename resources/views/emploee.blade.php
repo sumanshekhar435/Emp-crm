@@ -111,21 +111,21 @@
                                                 <div class="col-md-4">
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="radio" name="gender"
-                                                            id="gender" value="male">
+                                                            id="gender" value="Male">
                                                         <label class="form-check-label" for="male">Male</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="radio" name="gender"
-                                                            id="gender" value="female">
+                                                            id="gender" value="Female">
                                                         <label class="form-check-label" for="female">Female</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="radio" name="gender"
-                                                            id="gender" value="other">
+                                                            id="gender" value="Other">
                                                         <label class="form-check-label" for="other">Other</label>
                                                     </div>
                                                 </div>
@@ -219,23 +219,23 @@
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="gender"
-                                                            id="edit_gender" value="male">
-                                                        <label class="form-check-label" for="male">Male</label>
+                                                        <input class="form-check-input edit_gender" type="radio" name="gender"
+                                                            id="edit_gender_male" value="Male">
+                                                        <label class="form-check-label" for="edit_gender_male">Male</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="gender"
-                                                            id="edit_gender" value="female">
-                                                        <label class="form-check-label" for="female">Female</label>
+                                                        <input class="form-check-input edit_gender" type="radio" name="gender"
+                                                            id="edit_gender_female" value="Female">
+                                                        <label class="form-check-label" for="edit_gender_female">Female</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="gender"
-                                                            id="edit_gender" value="other">
-                                                        <label class="form-check-label" for="other">Other</label>
+                                                        <input class="form-check-input edit_gender" type="radio" name="gender"
+                                                            id="edit_gender_other" value="Other">
+                                                        <label class="form-check-label" for="edit_gender_other">Other</label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -312,7 +312,7 @@
                 var name = $('#name').val();
                 var designation = $('#designation').val();
                 var salary = $('#salary').val();
-                var gender = $('#gender').val();
+                var gender = $('input[name="gender"]:checked').val();
                 var hobby = $('#hobby').val();
                 var image = $('#image')[0].files[0];
                 var data = new FormData();
@@ -390,9 +390,7 @@
                         $('#edit_name').val(response.data.name);
                         $('#edit_designation').val(response.data.designation);
                         $('#edit_salary').val(response.data.salary);
-                        $('#edit_gender').val(response.data.gender);
-                        $('input[name="gender"][value="' + response.data.gender + '"]').prop(
-                            'checked', true);
+                        $('.edit_gender[value="' + response.data.gender + '"]').prop('checked', true);
                         $('#edit_hobby').val(response.data.hobby);
                     }
                 });
