@@ -35,7 +35,7 @@
                         @foreach ($emp as $item)
                             <tr class="tableRow" data-id="{{ $item->id }}">
                                 <td class="pl-3"><i class="fa fa-sort"></i></td>
-                                <td>{{ $item->name }}</td>
+                                <td><img src="{{asset($item->image)}}" style="max-width: 40px; max-height: 40px; object-fit: cover; border-radius: 50%;" alt=""> {{ $item->name }}</td>
                                 <td>{{ $item->designation }}</td>
                                 <td>{{ $item->salary }}</td>
                                 <td>{{ $item->gender }}</td>
@@ -85,7 +85,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                                <form action="empCreatForm">
+                                <form id="empCreatForm">
                                     <div class="card-body">
                                         <div class="form-group">
                                             <label for="name">Emp Name</label>
